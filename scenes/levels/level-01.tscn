@@ -29,32 +29,59 @@ texture_region_size = Vector2i(256, 256)
 tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_w44ue")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_701hk"]
-size = Vector2(168, 48)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0wqo"]
 texture = ExtResource("3_1j0ho")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(64, 64)
 1:10/0 = 0
 1:10/0/terrain_set = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:10/0/terrains_peering_bit/right_side = 0
 2:10/0 = 0
+2:10/0/terrain_set = 0
+2:10/0/terrain = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:10/0/terrains_peering_bit/right_side = 0
+2:10/0/terrains_peering_bit/left_side = 0
 3:10/0 = 0
+3:10/0/terrain_set = 0
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -16.665527, 23.768867, -32, 1.9124374)
+3:10/0/terrains_peering_bit/right_side = 1
 4:10/0 = 0
+4:10/0/terrain_set = 0
+4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 5.190895, 0.27320862, 32, -32, 32)
+4:10/0/terrains_peering_bit/left_side = 1
 5:10/0 = 0
+5:10/0/terrain_set = 0
+5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:10/0/terrains_peering_bit/left_side = 0
+4:9/0 = 0
+4:9/0/terrain_set = 0
+4:9/0/terrain = 0
+4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_h6en2"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "Grass"
+terrain_set_0/terrain_0/name = "Square Grass"
 terrain_set_0/terrain_0/color = Color(0.71268106, 0, 0.30961502, 1)
+terrain_set_0/terrain_1/name = "Rounded Grass"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_l0wqo")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_701hk"]
+size = Vector2(168, 48)
 
 [node name="Level01" type="Node2D" unique_id=1900646980]
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=356466952]
 tile_map_data = PackedByteArray("AAD+////AAABAAMAAAD/////AAABAAMAAAAAAP//AAABAAMAAAAAAP7/AAABAAMAAAABAP7/AAABAAMAAAACAP7/AAABAAMAAAD+//7/AAABAAMAAAD///7/AAABAAMAAAADAP7/AAABAAMAAAAEAP7/AAABAAMAAAAEAP//AAABAAMAAAAFAP//AAABAAMAAAAFAP7/AAABAAMAAAADAP//AAABAAMAAAACAP//AAABAAMAAAABAP//AAABAAMAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAD+/wEAAAABAAIAAAD//wEAAAABAAIAAAAAAAEAAAABAAIAAAABAAEAAAABAAIAAAACAAEAAAABAAIAAAADAAEAAAABAAIAAAAEAAEAAAABAAIAAAAFAAEAAAABAAIAAAD+/wIAAAACAAEAAAD//wIAAAADAAEAAAAAAAIAAAADAAEAAAABAAIAAAAAAAIAAAACAAIAAAADAAEAAAADAAIAAAADAAEAAAAEAAIAAAADAAEAAAAFAAIAAAADAAEAAAD+/wMAAAABAAMAAAD//wMAAAABAAMAAAAAAAMAAAABAAMAAAABAAMAAAABAAMAAAACAAMAAAABAAMAAAADAAMAAAABAAMAAAAEAAMAAAABAAMAAAAFAAMAAAABAAMAAAA=")
 tile_set = SubResource("TileSet_1j0ho")
+
+[node name="Platforms" type="TileMapLayer" parent="." unique_id=255051574]
+tile_map_data = PackedByteArray("AAACAAMAAAAEAAoAAAABAAMAAAADAAoAAAAPAAYAAAAEAAoAAAAOAAYAAAADAAoAAAABAAkAAAACAAoAAAACAAkAAAACAAoAAAAAAAkAAAABAAoAAAADAAkAAAACAAoAAAAEAAkAAAACAAoAAAAFAAkAAAACAAoAAAAGAAkAAAACAAoAAAAHAAkAAAACAAoAAAAIAAkAAAACAAoAAAAJAAkAAAAFAAoAAAAGAAIAAAACAAoAAAAHAAIAAAACAAoAAAAFAAIAAAABAAoAAAAIAAIAAAACAAoAAAAJAAIAAAACAAoAAAAKAAIAAAACAAoAAAALAAIAAAACAAoAAAAMAAIAAAAFAAoAAAA=")
+tile_set = SubResource("TileSet_h6en2")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1386412714]
 position = Vector2(560, 336)
@@ -73,6 +100,3 @@ color = Color(0.093160845, 0.093160845, 0.09316083, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1/StaticBody2D" unique_id=1349817192]
 position = Vector2(84, 24)
 shape = SubResource("RectangleShape2D_701hk")
-
-[node name="Platforms" type="TileMapLayer" parent="." unique_id=255051574]
-tile_set = SubResource("TileSet_h6en2")
