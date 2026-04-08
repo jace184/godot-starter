@@ -166,6 +166,17 @@ terrain_set_0/terrain_0/name = "Grass Squares"
 terrain_set_0/terrain_0/color = Color(0.70443, 0, 0.36260968, 1)
 sources/0 = SubResource("TileSetAtlasSource_l0wqo")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w44ue"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1j0ho"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l0wqo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h6en2"]
+normal = Vector2(1, 0)
+
 [node name="Level01" type="Node2D" unique_id=1900646980]
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=356466952]
@@ -182,3 +193,21 @@ position = Vector2(560, 336)
 [node name="Player" parent="PlayerSpawn" unique_id=1207979450 instance=ExtResource("3_w44ue")]
 move_speed = 500.0
 jump_velocity = -700.0
+
+[node name="WorldBoundary" type="StaticBody2D" parent="." unique_id=1099846025]
+
+[node name="Top" type="CollisionShape2D" parent="WorldBoundary" unique_id=496398611]
+position = Vector2(0, -205)
+shape = SubResource("WorldBoundaryShape2D_w44ue")
+
+[node name="Right" type="CollisionShape2D" parent="WorldBoundary" unique_id=1672718504]
+position = Vector2(3561, 0)
+shape = SubResource("WorldBoundaryShape2D_1j0ho")
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldBoundary" unique_id=1768751378]
+position = Vector2(0, 1059)
+shape = SubResource("WorldBoundaryShape2D_l0wqo")
+
+[node name="Left" type="CollisionShape2D" parent="WorldBoundary" unique_id=390822385]
+position = Vector2(-2034, 0)
+shape = SubResource("WorldBoundaryShape2D_h6en2")
